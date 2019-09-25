@@ -33,8 +33,7 @@ public enum SecurityLevel {
   LEVEL_07(0.7, "#00F000"),
   LEVEL_08(0.8, "#00EF47"),
   LEVEL_09(0.9, "#48F0C0"),
-  LEVEL_10(1.0, "#2FEFEF"),
-  ;
+  LEVEL_10(1.0, "#2FEFEF");
 
 
   private final double value; // Numeric value.

@@ -14,6 +14,7 @@ import com.github.tddts.eve.model.error.*;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
@@ -41,7 +42,7 @@ public interface WalletReactiveApi {
       produces = "application/json",
       consumes = "",
       method = RequestMethod.GET)
-  Double getCharactersCharacterIdWallet(@Min(1) @ApiParam(value = "An EVE character ID", required = true) @PathVariable("character_id") Integer characterId,
+  Mono<Double> getCharactersCharacterIdWallet(@Min(1) @ApiParam(value = "An EVE character ID", required = true) @PathVariable("character_id") Integer characterId,
       @ApiParam(value = "The server name you would like data from", allowableValues = "tranquility, singularity", defaultValue = "tranquility") @Valid @RequestParam(value = "datasource", required = false, defaultValue = "tranquility") String datasource,
       @ApiParam(value = "ETag from a previous request. A 304 will be returned if this matches the current ETag") @RequestHeader(value = "If-None-Match", required = false) String ifNoneMatch,
       @ApiParam(value = "Access token to use if unable to set a header") @Valid @RequestParam(value = "token", required = false) String token);
